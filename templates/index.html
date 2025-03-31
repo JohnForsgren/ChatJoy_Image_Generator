@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Generation Tool</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Image Generation Tool</h1>
+        
+        <div class="main-section">
+            <div class="reference-widgets-container" id="reference-widgets-container">
+                <!-- Reference widgets will be dynamically added here -->
+                <div class="reference-widget" id="reference-widget-1">
+                    <h3>Reference image 1 + description:</h3>
+                    <div class="input-group">
+                        <input type="file" id="reference-image-1" class="reference-image-input" accept="image/*">
+                        <div class="image-preview" id="image-preview-1"></div>
+                    </div>
+                    <textarea id="reference-description-1" class="reference-description" placeholder="Describe this reference image..."></textarea>
+                </div>
+                
+                <div class="reference-widget" id="reference-widget-2">
+                    <h3>Reference image 2 + description:</h3>
+                    <div class="input-group">
+                        <input type="file" id="reference-image-2" class="reference-image-input" accept="image/*">
+                        <div class="image-preview" id="image-preview-2"></div>
+                    </div>
+                    <textarea id="reference-description-2" class="reference-description" placeholder="Describe this reference image..."></textarea>
+                </div>
+            </div>
+            
+            <button id="add-reference-btn">+ Add Another Reference</button>
+            
+            <div class="main-description-container">
+                <h3>Main Image Description:</h3>
+                <textarea id="main-description" placeholder="Describe the image you want to generate..."></textarea>
+                <button id="generate-btn">Generate Image</button>
+            </div>
+        </div>
+        
+        <div class="result-section">
+            <h2>Generated Image</h2>
+            <div class="loading-indicator" id="loading-indicator">Generating image...</div>
+            <div class="generated-image-container" id="generated-image-container">
+                <!-- Generated image will be displayed here -->
+            </div>
+            
+            <div class="keywords-container" id="keywords-container">
+                <!-- Generated keywords will be displayed here -->
+            </div>
+            
+            <div class="creative-variations">
+                <h3>Creative Variations</h3>
+                <button id="variations-btn" disabled>Get Creative Variations</button>
+                <div class="variations-container" id="variations-container">
+                    <!-- Variations will be displayed here -->
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Modal for warnings -->
+    <div id="warning-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <p id="warning-message"></p>
+            <div class="modal-buttons">
+                <button id="continue-anyway">Continue Anyway</button>
+                <button id="add-image">Add Image</button>
+            </div>
+        </div>
+    </div>
+    
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
